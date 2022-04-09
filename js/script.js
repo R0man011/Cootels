@@ -1,20 +1,26 @@
-const filter = document.querySelectorAll('.catalog-item');
-
-$('.catalog-btn').click(function () {
-  $(this).addClass('active').siblings().removeClass('active');
+$(document).ready(function () {
+  $('.header__burger').click(function (event) {
+    $('.header__burger, .header__menu').toggleClass('active');
+    $('body').toggleClass('lock');
+  });
+  // закрытие в меню
+  // $('.header__menu').click(function (event) {
+  //   $('.header__burger,.header__menu').removeClass('active');
+  //   $('body').removeClass('lock');
+  // });
 });
 
-document.querySelector('.button-catalog').addEventListener('click', event => {
-  if (event.target.tagName !== 'BUTTON') return false;
-
-  let filterClass = event.target.dataset['f'];
-
-  filter.forEach(elem => {
-    elem.classList.remove('hide');
-    if (!elem.classList.contains(filterClass) && filterClass !== 'new') {
-      elem.classList.add('hide');
-
-    }
+$(document).ready(function () {
+  $('.slider').slick({
+    arrows: false,
+    dots: true,
+    speed: 1000,
+    infinity: true,
+    initialSlide: 1,
+    autoplay: false,
+    autoplaySpeed: 2200,
+    pauseOnHover: true,
+    touchThreshold: 10,
+    touchMove: true,
   });
 });
-
